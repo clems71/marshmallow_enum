@@ -33,6 +33,6 @@ class EnumField(Field):
 
     def _deserialize_by_name(self, value, attr, data):
         try:
-            return getattr(self.enum, value)
+            return getattr(self.enum, value).value
         except AttributeError as e:
             self.fail('by_name', name=value)
